@@ -17,7 +17,6 @@ import '../services/auth_service.dart';
 import '../services/channel_registry_service.dart';
 import '../services/client_api.dart';
 import '../services/database_api.dart';
-import '../services/hive_service.dart';
 import '../services/realtime_service.dart';
 import '../services/vote_service.dart';
 
@@ -38,7 +37,6 @@ Future<void> setupLocator({
   locator.registerSingleton(ChannelRegistryService());
   locator.registerSingleton(AuthService());
   locator.registerSingleton(DatabaseAPI());
-  locator.registerSingleton(HiveService());
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());

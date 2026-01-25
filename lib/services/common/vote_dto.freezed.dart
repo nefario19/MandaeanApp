@@ -12,7 +12,7 @@ part of 'vote_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 VoteDTO _$VoteDTOFromJson(Map<String, dynamic> json) {
   return _VoteDTO.fromJson(json);
@@ -30,12 +30,8 @@ mixin _$VoteDTO {
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this VoteDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of VoteDTO
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $VoteDTOCopyWith<VoteDTO> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -66,8 +62,6 @@ class _$VoteDTOCopyWithImpl<$Res, $Val extends VoteDTO>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of VoteDTO
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,10 +117,10 @@ class _$VoteDTOCopyWithImpl<$Res, $Val extends VoteDTO>
 }
 
 /// @nodoc
-abstract class _$$VoteDTOImplCopyWith<$Res> implements $VoteDTOCopyWith<$Res> {
-  factory _$$VoteDTOImplCopyWith(
-          _$VoteDTOImpl value, $Res Function(_$VoteDTOImpl) then) =
-      __$$VoteDTOImplCopyWithImpl<$Res>;
+abstract class _$$_VoteDTOCopyWith<$Res> implements $VoteDTOCopyWith<$Res> {
+  factory _$$_VoteDTOCopyWith(
+          _$_VoteDTO value, $Res Function(_$_VoteDTO) then) =
+      __$$_VoteDTOCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -142,15 +136,12 @@ abstract class _$$VoteDTOImplCopyWith<$Res> implements $VoteDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$VoteDTOImplCopyWithImpl<$Res>
-    extends _$VoteDTOCopyWithImpl<$Res, _$VoteDTOImpl>
-    implements _$$VoteDTOImplCopyWith<$Res> {
-  __$$VoteDTOImplCopyWithImpl(
-      _$VoteDTOImpl _value, $Res Function(_$VoteDTOImpl) _then)
+class __$$_VoteDTOCopyWithImpl<$Res>
+    extends _$VoteDTOCopyWithImpl<$Res, _$_VoteDTO>
+    implements _$$_VoteDTOCopyWith<$Res> {
+  __$$_VoteDTOCopyWithImpl(_$_VoteDTO _value, $Res Function(_$_VoteDTO) _then)
       : super(_value, _then);
 
-  /// Create a copy of VoteDTO
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -164,7 +155,7 @@ class __$$VoteDTOImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$VoteDTOImpl(
+    return _then(_$_VoteDTO(
       availableBallots: null == availableBallots
           ? _value.availableBallots
           : availableBallots // ignore: cast_nullable_to_non_nullable
@@ -207,8 +198,8 @@ class __$$VoteDTOImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$VoteDTOImpl implements _VoteDTO {
-  const _$VoteDTOImpl(
+class _$_VoteDTO implements _VoteDTO {
+  const _$_VoteDTO(
       {required this.availableBallots,
       required this.issuedBallots,
       required this.usedBallots,
@@ -219,8 +210,8 @@ class _$VoteDTOImpl implements _VoteDTO {
       required this.createdAt,
       required this.updatedAt});
 
-  factory _$VoteDTOImpl.fromJson(Map<String, dynamic> json) =>
-      _$$VoteDTOImplFromJson(json);
+  factory _$_VoteDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_VoteDTOFromJson(json);
 
   @override
   final int availableBallots;
@@ -247,10 +238,10 @@ class _$VoteDTOImpl implements _VoteDTO {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$VoteDTOImpl &&
+            other is _$_VoteDTO &&
             (identical(other.availableBallots, availableBallots) ||
                 other.availableBallots == availableBallots) &&
             (identical(other.issuedBallots, issuedBallots) ||
@@ -269,7 +260,7 @@ class _$VoteDTOImpl implements _VoteDTO {
                 other.updatedAt == updatedAt));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -283,17 +274,15 @@ class _$VoteDTOImpl implements _VoteDTO {
       createdAt,
       updatedAt);
 
-  /// Create a copy of VoteDTO
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$VoteDTOImplCopyWith<_$VoteDTOImpl> get copyWith =>
-      __$$VoteDTOImplCopyWithImpl<_$VoteDTOImpl>(this, _$identity);
+  _$$_VoteDTOCopyWith<_$_VoteDTO> get copyWith =>
+      __$$_VoteDTOCopyWithImpl<_$_VoteDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$VoteDTOImplToJson(
+    return _$$_VoteDTOToJson(
       this,
     );
   }
@@ -309,9 +298,9 @@ abstract class _VoteDTO implements VoteDTO {
       required final String userId,
       required final String id,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$VoteDTOImpl;
+      required final DateTime updatedAt}) = _$_VoteDTO;
 
-  factory _VoteDTO.fromJson(Map<String, dynamic> json) = _$VoteDTOImpl.fromJson;
+  factory _VoteDTO.fromJson(Map<String, dynamic> json) = _$_VoteDTO.fromJson;
 
   @override
   int get availableBallots;
@@ -331,11 +320,8 @@ abstract class _VoteDTO implements VoteDTO {
   DateTime get createdAt;
   @override
   DateTime get updatedAt;
-
-  /// Create a copy of VoteDTO
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$VoteDTOImplCopyWith<_$VoteDTOImpl> get copyWith =>
+  @JsonKey(ignore: true)
+  _$$_VoteDTOCopyWith<_$_VoteDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

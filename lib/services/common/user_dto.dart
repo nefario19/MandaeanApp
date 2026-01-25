@@ -21,5 +21,6 @@ class UserDTO with _$UserDTO {
     required Map<String, dynamic> prefs,
   }) = _UserDTO;
 
-  factory UserDTO.fromJson(Map<String, dynamic> json) => _$UserDTOFromJson(json);
+  factory UserDTO.fromJson(Map<String, dynamic> json) =>
+      _$UserDTOFromJson(json);
 }

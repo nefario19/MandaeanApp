@@ -13,7 +13,6 @@ import 'package:bushido/ui/views/login/login_view.dart';
 import 'package:bushido/services/account_api.dart';
 import 'package:bushido/ui/views/register/register_view.dart';
 import 'package:bushido/services/app_user_service.dart';
-import 'package:bushido/services/hive_service.dart';
 import 'package:bushido/ui/views/candidate_details_view/candidate_details_view.dart';
 import 'package:bushido/services/database_api.dart';
 
@@ -34,7 +33,6 @@ import 'package:bushido/services/database_api.dart';
     Singleton(classType: ChannelRegistryService),
     Singleton(classType: AuthService),
     Singleton(classType: DatabaseAPI),
-    Singleton(classType: HiveService),
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),

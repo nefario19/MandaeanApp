@@ -6,20 +6,19 @@ part of 'vote_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VoteDTOImpl _$$VoteDTOImplFromJson(Map<String, dynamic> json) =>
-    _$VoteDTOImpl(
-      availableBallots: (json['availableBallots'] as num).toInt(),
-      issuedBallots: (json['issuedBallots'] as num).toInt(),
-      usedBallots: (json['usedBallots'] as num).toInt(),
+_$_VoteDTO _$$_VoteDTOFromJson(Map<String, dynamic> json) => _$_VoteDTO(
+      availableBallots: json['availableBallots'] as int,
+      issuedBallots: json['issuedBallots'] as int,
+      usedBallots: json['usedBallots'] as int,
       selectedCandidate: json['selectedCandidate'] as String,
-      voteCount: (json['voteCount'] as num).toInt(),
+      voteCount: json['voteCount'] as int,
       userId: json['userId'] as String,
       id: json['id'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$$VoteDTOImplToJson(_$VoteDTOImpl instance) =>
+Map<String, dynamic> _$$_VoteDTOToJson(_$_VoteDTO instance) =>
     <String, dynamic>{
       'availableBallots': instance.availableBallots,
       'issuedBallots': instance.issuedBallots,

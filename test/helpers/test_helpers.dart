@@ -6,7 +6,6 @@ import 'package:bushido/services/client_api.dart';
 import 'package:bushido/services/auth_service.dart';
 import 'package:bushido/services/account_api.dart';
 import 'package:bushido/services/app_user_service.dart';
-import 'package:bushido/services/hive_service.dart';
 import 'package:bushido/services/database_api.dart';
 import 'package:bushido/services/vote_service.dart';
 import 'package:bushido/services/realtime_service.dart';
@@ -25,7 +24,6 @@ import 'test_helpers.mocks.dart';
     MockSpec<AuthService>(onMissingStub: OnMissingStub.returnDefault),
     MockSpec<AccountAPI>(onMissingStub: OnMissingStub.returnDefault),
     MockSpec<AppUserService>(onMissingStub: OnMissingStub.returnDefault),
-    MockSpec<HiveService>(onMissingStub: OnMissingStub.returnDefault),
     MockSpec<DatabaseAPI>(onMissingStub: OnMissingStub.returnDefault),
     MockSpec<VoteService>(onMissingStub: OnMissingStub.returnDefault),
     MockSpec<RealtimeService>(onMissingStub: OnMissingStub.returnDefault),
@@ -42,7 +40,6 @@ void registerServices() {
   getAndRegisterAuthService();
   getAndRegisterAccountService();
   getAndRegisterAppUserService();
-  getAndRegisterHiveService();
   getAndRegisterDatabaseApiService();
   getAndRegisterVoteService();
   getAndRegisterRealtimeService();
@@ -104,9 +101,9 @@ MockDialogService getAndRegisterDialogService() {
   return service;
 }
 
-MockAppwriteClientService getAndRegisterAppwriteClientService() {
+MockClientAPI getAndRegisterAppwriteClientService() {
   _removeRegistrationIfExists<ClientAPI>();
-  final service = MockAppwriteClientService();
+  final service = MockClientAPI();
   locator.registerSingleton<ClientAPI>(service);
   return service;
 }
@@ -118,9 +115,9 @@ MockAuthService getAndRegisterAuthService() {
   return service;
 }
 
-MockAccountService getAndRegisterAccountService() {
+MockAccountAPI getAndRegisterAccountService() {
   _removeRegistrationIfExists<AccountAPI>();
-  final service = MockAccountService();
+  final service = MockAccountAPI();
   locator.registerSingleton<AccountAPI>(service);
   return service;
 }
@@ -132,16 +129,9 @@ MockAppUserService getAndRegisterAppUserService() {
   return service;
 }
 
-MockHiveService getAndRegisterHiveService() {
-  _removeRegistrationIfExists<HiveService>();
-  final service = MockHiveService();
-  locator.registerSingleton<HiveService>(service);
-  return service;
-}
-
-MockDatabaseApiService getAndRegisterDatabaseApiService() {
+MockDatabaseAPI getAndRegisterDatabaseApiService() {
   _removeRegistrationIfExists<DatabaseAPI>();
-  final service = MockDatabaseApiService();
+  final service = MockDatabaseAPI();
   locator.registerSingleton<DatabaseAPI>(service);
   return service;
 }

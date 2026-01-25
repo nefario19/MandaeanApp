@@ -1,5 +1,5 @@
 import 'package:appwrite/appwrite.dart';
-import 'package:appwrite/models.dart';
+import 'package:appwrite/models.dart' as models;
 import 'package:bushido/app/app.locator.dart';
 import 'package:bushido/services/client_api.dart';
 import 'package:bushido/services/common/environment.dart';
@@ -7,16 +7,16 @@ import 'package:bushido/services/common/environment.dart';
 import '../app/app.logger.dart';
 
 class DatabaseAPI {
-  DatabaseAPI() : _db = TablesDB(locator<ClientAPI>().client);
+  DatabaseAPI() : _db = Databases(locator<ClientAPI>().client);
 
   final _log = log('DatabaseAPI');
-  final TablesDB _db;
+  final Databases _db;
 
-  Future<RowList?> getALlRows({required String tableId}) async {
+  Future<models.DocumentList?> getALlRows({required String tableId}) async {
     try {
-      return await _db.listRows(
+      return await _db.listDocuments(
         databaseId: Environment.databaseId,
-        tableId: ID.custom(tableId),
+        collectionId: tableId,
       );
     } catch (e) {
       _log.e('Failed to get rows from table $tableId', error: e);
@@ -24,37 +24,39 @@ class DatabaseAPI {
     return null;
   }
 
-  void createRow(
+  Future<void> createRow(
       {required String tableId, required Map<String, dynamic> data}) async {
     try {
-      await _db.createRow(
+      await _db.createDocument(
           databaseId: Environment.databaseId,
-          tableId: ID.custom(tableId),
-          rowId: ID.unique(),
+          collectionId: tableId,
+          documentId: ID.unique(),
           data: data);
     } catch (e) {
       _log.e('Failed to create rows for table $tableId', error: e);
     }
   }
 
-  void deleteRow({required String tableId, required String rowId}) async {
+  Future<void> deleteRow(
+      {required String tableId, required String rowId}) async {
     try {
-      await _db.deleteRow(
+      await _db.deleteDocument(
         databaseId: Environment.databaseId,
-        tableId: ID.custom(tableId),
-        rowId: rowId,
+        collectionId: tableId,
+        documentId: rowId,
       );
     } catch (e) {
       _log.e('Failed to delete row for table $tableId', error: e);
     }
   }
 
-  Future<Row?> getRow({required String tableId, required String rowId}) async {
+  Future<models.Document?> getRow(
+      {required String tableId, required String rowId}) async {
     try {
-      await _db.getRow(
+      return await _db.getDocument(
         databaseId: Environment.databaseId,
-        tableId: ID.custom(tableId),
-        rowId: rowId,
+        collectionId: tableId,
+        documentId: rowId,
       );
     } catch (e) {
       _log.e('Failed to get row for table $tableId', error: e);
@@ -62,12 +64,16 @@ class DatabaseAPI {
     return null;
   }
 
-  void updateRow({required String tableId, required String rowId}) async {
+  Future<void> updateRow(
+      {required String tableId,
+      required String rowId,
+      Map<String, dynamic>? data}) async {
     try {
-      await _db.updateRow(
+      await _db.updateDocument(
         databaseId: Environment.databaseId,
-        tableId: ID.custom(tableId),
-        rowId: rowId,
+        collectionId: tableId,
+        documentId: rowId,
+        data: data ?? {},
       );
     } catch (e) {
       _log.e('Failed to update row for table $tableId', error: e);

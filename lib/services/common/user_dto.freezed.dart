@@ -12,7 +12,7 @@ part of 'user_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserDTO _$UserDTOFromJson(Map<String, dynamic> json) {
   return _UserDTO.fromJson(json);
@@ -34,12 +34,8 @@ mixin _$UserDTO {
   bool get mfa => throw _privateConstructorUsedError;
   Map<String, dynamic> get prefs => throw _privateConstructorUsedError;
 
-  /// Serializes this UserDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of UserDTO
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $UserDTOCopyWith<UserDTO> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -74,8 +70,6 @@ class _$UserDTOCopyWithImpl<$Res, $Val extends UserDTO>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of UserDTO
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,10 +145,10 @@ class _$UserDTOCopyWithImpl<$Res, $Val extends UserDTO>
 }
 
 /// @nodoc
-abstract class _$$UserDTOImplCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
-  factory _$$UserDTOImplCopyWith(
-          _$UserDTOImpl value, $Res Function(_$UserDTOImpl) then) =
-      __$$UserDTOImplCopyWithImpl<$Res>;
+abstract class _$$_UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
+  factory _$$_UserDTOCopyWith(
+          _$_UserDTO value, $Res Function(_$_UserDTO) then) =
+      __$$_UserDTOCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -174,15 +168,12 @@ abstract class _$$UserDTOImplCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UserDTOImplCopyWithImpl<$Res>
-    extends _$UserDTOCopyWithImpl<$Res, _$UserDTOImpl>
-    implements _$$UserDTOImplCopyWith<$Res> {
-  __$$UserDTOImplCopyWithImpl(
-      _$UserDTOImpl _value, $Res Function(_$UserDTOImpl) _then)
+class __$$_UserDTOCopyWithImpl<$Res>
+    extends _$UserDTOCopyWithImpl<$Res, _$_UserDTO>
+    implements _$$_UserDTOCopyWith<$Res> {
+  __$$_UserDTOCopyWithImpl(_$_UserDTO _value, $Res Function(_$_UserDTO) _then)
       : super(_value, _then);
 
-  /// Create a copy of UserDTO
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -200,7 +191,7 @@ class __$$UserDTOImplCopyWithImpl<$Res>
     Object? mfa = null,
     Object? prefs = null,
   }) {
-    return _then(_$UserDTOImpl(
+    return _then(_$_UserDTO(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -259,8 +250,8 @@ class __$$UserDTOImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UserDTOImpl implements _UserDTO {
-  const _$UserDTOImpl(
+class _$_UserDTO implements _UserDTO {
+  const _$_UserDTO(
       {required this.id,
       required this.createdAt,
       required this.updatedAt,
@@ -276,8 +267,8 @@ class _$UserDTOImpl implements _UserDTO {
       required final Map<String, dynamic> prefs})
       : _prefs = prefs;
 
-  factory _$UserDTOImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserDTOImplFromJson(json);
+  factory _$_UserDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_UserDTOFromJson(json);
 
   @override
   final String id;
@@ -317,10 +308,10 @@ class _$UserDTOImpl implements _UserDTO {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserDTOImpl &&
+            other is _$_UserDTO &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -344,7 +335,7 @@ class _$UserDTOImpl implements _UserDTO {
             const DeepCollectionEquality().equals(other._prefs, _prefs));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -362,17 +353,15 @@ class _$UserDTOImpl implements _UserDTO {
       mfa,
       const DeepCollectionEquality().hash(_prefs));
 
-  /// Create a copy of UserDTO
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserDTOImplCopyWith<_$UserDTOImpl> get copyWith =>
-      __$$UserDTOImplCopyWithImpl<_$UserDTOImpl>(this, _$identity);
+  _$$_UserDTOCopyWith<_$_UserDTO> get copyWith =>
+      __$$_UserDTOCopyWithImpl<_$_UserDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserDTOImplToJson(
+    return _$$_UserDTOToJson(
       this,
     );
   }
@@ -392,9 +381,9 @@ abstract class _UserDTO implements UserDTO {
       required final bool emailVerification,
       required final bool phoneVerification,
       required final bool mfa,
-      required final Map<String, dynamic> prefs}) = _$UserDTOImpl;
+      required final Map<String, dynamic> prefs}) = _$_UserDTO;
 
-  factory _UserDTO.fromJson(Map<String, dynamic> json) = _$UserDTOImpl.fromJson;
+  factory _UserDTO.fromJson(Map<String, dynamic> json) = _$_UserDTO.fromJson;
 
   @override
   String get id;
@@ -422,11 +411,8 @@ abstract class _UserDTO implements UserDTO {
   bool get mfa;
   @override
   Map<String, dynamic> get prefs;
-
-  /// Create a copy of UserDTO
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UserDTOImplCopyWith<_$UserDTOImpl> get copyWith =>
+  @JsonKey(ignore: true)
+  _$$_UserDTOCopyWith<_$_UserDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

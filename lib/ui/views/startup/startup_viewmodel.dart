@@ -14,7 +14,8 @@ class StartupViewModel extends BaseViewModel {
   final AuthService _authService = locator<AuthService>();
   final NavigationService _navigationService = locator<NavigationService>();
   final VoteService _voteService = locator<VoteService>();
-  final ChannelRegistryService _channelRegistryService = locator<ChannelRegistryService>();
+  final ChannelRegistryService _channelRegistryService =
+      locator<ChannelRegistryService>();
 
   final _log = log('Start up');
 
