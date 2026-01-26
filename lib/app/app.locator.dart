@@ -12,11 +12,11 @@ import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
 import '../services/account_api.dart';
-import '../services/app_user_service.dart';
 import '../services/auth_service.dart';
 import '../services/channel_registry_service.dart';
 import '../services/client_api.dart';
 import '../services/database_api.dart';
+import '../services/news_service.dart';
 import '../services/realtime_service.dart';
 import '../services/vote_service.dart';
 
@@ -31,15 +31,15 @@ Future<void> setupLocator({
       environment: environment, environmentFilter: environmentFilter);
 
 // Register dependencies
-  locator.registerSingleton(ClientAPI());
-  locator.registerSingleton(AccountAPI());
-  locator.registerSingleton(RealtimeService());
-  locator.registerSingleton(ChannelRegistryService());
-  locator.registerSingleton(AuthService());
-  locator.registerSingleton(DatabaseAPI());
-  locator.registerLazySingleton(() => BottomSheetService());
+  locator.registerLazySingleton(() => ClientAPI());
+  locator.registerLazySingleton(() => NewsService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
-  locator.registerLazySingleton(() => AppUserService());
+  locator.registerLazySingleton(() => BottomSheetService());
+  locator.registerLazySingleton(() => AuthService());
+  locator.registerLazySingleton(() => AccountAPI());
+  locator.registerLazySingleton(() => RealtimeService());
   locator.registerLazySingleton(() => VoteService());
+  locator.registerLazySingleton(() => ChannelRegistryService());
+  locator.registerLazySingleton(() => DatabaseAPI());
 }

@@ -12,7 +12,7 @@ part of 'vote_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 VoteModel _$VoteModelFromJson(Map<String, dynamic> json) {
   return _VoteModel.fromJson(json);
@@ -30,8 +30,12 @@ mixin _$VoteModel {
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this VoteModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of VoteModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $VoteModelCopyWith<VoteModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -63,6 +67,8 @@ class _$VoteModelCopyWithImpl<$Res, $Val extends VoteModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of VoteModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,10 +124,11 @@ class _$VoteModelCopyWithImpl<$Res, $Val extends VoteModel>
 }
 
 /// @nodoc
-abstract class _$$_VoteModelCopyWith<$Res> implements $VoteModelCopyWith<$Res> {
-  factory _$$_VoteModelCopyWith(
-          _$_VoteModel value, $Res Function(_$_VoteModel) then) =
-      __$$_VoteModelCopyWithImpl<$Res>;
+abstract class _$$VoteModelImplCopyWith<$Res>
+    implements $VoteModelCopyWith<$Res> {
+  factory _$$VoteModelImplCopyWith(
+          _$VoteModelImpl value, $Res Function(_$VoteModelImpl) then) =
+      __$$VoteModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -137,13 +144,15 @@ abstract class _$$_VoteModelCopyWith<$Res> implements $VoteModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_VoteModelCopyWithImpl<$Res>
-    extends _$VoteModelCopyWithImpl<$Res, _$_VoteModel>
-    implements _$$_VoteModelCopyWith<$Res> {
-  __$$_VoteModelCopyWithImpl(
-      _$_VoteModel _value, $Res Function(_$_VoteModel) _then)
+class __$$VoteModelImplCopyWithImpl<$Res>
+    extends _$VoteModelCopyWithImpl<$Res, _$VoteModelImpl>
+    implements _$$VoteModelImplCopyWith<$Res> {
+  __$$VoteModelImplCopyWithImpl(
+      _$VoteModelImpl _value, $Res Function(_$VoteModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of VoteModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -157,7 +166,7 @@ class __$$_VoteModelCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_VoteModel(
+    return _then(_$VoteModelImpl(
       availableBallots: null == availableBallots
           ? _value.availableBallots
           : availableBallots // ignore: cast_nullable_to_non_nullable
@@ -200,8 +209,8 @@ class __$$_VoteModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_VoteModel extends _VoteModel with DiagnosticableTreeMixin {
-  const _$_VoteModel(
+class _$VoteModelImpl extends _VoteModel with DiagnosticableTreeMixin {
+  const _$VoteModelImpl(
       {required this.availableBallots,
       required this.issuedBallots,
       required this.usedBallots,
@@ -213,8 +222,8 @@ class _$_VoteModel extends _VoteModel with DiagnosticableTreeMixin {
       required this.updatedAt})
       : super._();
 
-  factory _$_VoteModel.fromJson(Map<String, dynamic> json) =>
-      _$$_VoteModelFromJson(json);
+  factory _$VoteModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$VoteModelImplFromJson(json);
 
   @override
   final int availableBallots;
@@ -257,10 +266,10 @@ class _$_VoteModel extends _VoteModel with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_VoteModel &&
+            other is _$VoteModelImpl &&
             (identical(other.availableBallots, availableBallots) ||
                 other.availableBallots == availableBallots) &&
             (identical(other.issuedBallots, issuedBallots) ||
@@ -279,7 +288,7 @@ class _$_VoteModel extends _VoteModel with DiagnosticableTreeMixin {
                 other.updatedAt == updatedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -293,15 +302,17 @@ class _$_VoteModel extends _VoteModel with DiagnosticableTreeMixin {
       createdAt,
       updatedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VoteModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_VoteModelCopyWith<_$_VoteModel> get copyWith =>
-      __$$_VoteModelCopyWithImpl<_$_VoteModel>(this, _$identity);
+  _$$VoteModelImplCopyWith<_$VoteModelImpl> get copyWith =>
+      __$$VoteModelImplCopyWithImpl<_$VoteModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_VoteModelToJson(
+    return _$$VoteModelImplToJson(
       this,
     );
   }
@@ -317,11 +328,11 @@ abstract class _VoteModel extends VoteModel {
       required final String userId,
       required final String id,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_VoteModel;
+      required final DateTime updatedAt}) = _$VoteModelImpl;
   const _VoteModel._() : super._();
 
   factory _VoteModel.fromJson(Map<String, dynamic> json) =
-      _$_VoteModel.fromJson;
+      _$VoteModelImpl.fromJson;
 
   @override
   int get availableBallots;
@@ -341,8 +352,11 @@ abstract class _VoteModel extends VoteModel {
   DateTime get createdAt;
   @override
   DateTime get updatedAt;
+
+  /// Create a copy of VoteModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_VoteModelCopyWith<_$_VoteModel> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$VoteModelImplCopyWith<_$VoteModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

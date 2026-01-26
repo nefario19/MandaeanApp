@@ -14,8 +14,10 @@ import 'package:bushido/services/auth_service.dart' as _i12;
 import 'package:bushido/services/channel_registry_service.dart' as _i18;
 import 'package:bushido/services/client_api.dart' as _i11;
 import 'package:bushido/services/common/event_type.dart' as _i19;
+import 'package:bushido/services/common/news_dto.dart' as _i21;
 import 'package:bushido/services/common/vote_model.dart' as _i16;
 import 'package:bushido/services/database_api.dart' as _i14;
+import 'package:bushido/services/news_service.dart' as _i20;
 import 'package:bushido/services/realtime_service.dart' as _i17;
 import 'package:bushido/services/vote_service.dart' as _i15;
 import 'package:flutter/foundation.dart' as _i6;
@@ -1354,4 +1356,32 @@ class MockChannelRegistryService extends _i1.Mock
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [NewsService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNewsService extends _i1.Mock implements _i20.NewsService {
+  @override
+  _i6.ValueListenable<List<_i21.NewsDTO>> get news => (super.noSuchMethod(
+        Invocation.getter(#news),
+        returnValue: _FakeValueListenable_6<List<_i21.NewsDTO>>(
+          this,
+          Invocation.getter(#news),
+        ),
+        returnValueForMissingStub: _FakeValueListenable_6<List<_i21.NewsDTO>>(
+          this,
+          Invocation.getter(#news),
+        ),
+      ) as _i6.ValueListenable<List<_i21.NewsDTO>>);
+
+  @override
+  _i9.Future<void> getAllNews() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllNews,
+          [],
+        ),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 }

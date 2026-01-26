@@ -12,6 +12,7 @@ class Environment {
   // Database
   static const String databaseId = '68d2cc0a00207193ffeb';
   static const String votesTableId = 'votes';
+  static const String newsTableId = 'news';
   static const String votesRowChannel =
       'databases.$databaseId.tables.$votesTableId.rows';
 }
