@@ -5,7 +5,6 @@ import 'package:bushido/app/app.router.dart';
 import 'package:bushido/services/auth_service.dart';
 import 'package:bushido/services/channel_registry_service.dart';
 import 'package:bushido/services/realtime_service.dart';
-import 'package:bushido/services/vote_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -13,7 +12,6 @@ class StartupViewModel extends BaseViewModel {
   final RealtimeService _realtimeService = locator<RealtimeService>();
   final AuthService _authService = locator<AuthService>();
   final NavigationService _navigationService = locator<NavigationService>();
-  final VoteService _voteService = locator<VoteService>();
   final ChannelRegistryService _channelRegistryService =
       locator<ChannelRegistryService>();
 
@@ -32,8 +30,8 @@ class StartupViewModel extends BaseViewModel {
       _log.d('User loggedIn status: $loggedIn');
 
       if (loggedIn) {
-        _navigationService.replaceWithHomeView();
-        _log.d('Navigating to HomeView.');
+        _navigationService.replaceWithNewsView();
+        _log.d('Navigating to NewsView.');
       } else {
         _navigationService.replaceWithLoginView();
         _log.d('Navigating to LoginView.');

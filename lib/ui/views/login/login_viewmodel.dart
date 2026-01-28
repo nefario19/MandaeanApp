@@ -34,7 +34,7 @@ class LoginViewModel extends BaseViewModel with ListenableServiceMixin {
         password: password.value,
       );
       _authService.currentSession.value = session;
-      _navigationService.replaceWithHomeView();
+      _navigationService.replaceWithNewsView();
     } catch (e) {
       errorMessage.value = e.toString();
     } finally {

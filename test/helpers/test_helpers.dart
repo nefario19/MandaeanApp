@@ -10,6 +10,7 @@ import 'package:bushido/services/database_api.dart';
 import 'package:bushido/services/vote_service.dart';
 import 'package:bushido/services/realtime_service.dart';
 import 'package:bushido/services/channel_registry_service.dart';
+import 'package:bushido/services/news_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -29,6 +30,7 @@ import 'test_helpers.mocks.dart';
     MockSpec<RealtimeService>(onMissingStub: OnMissingStub.returnDefault),
     MockSpec<ChannelRegistryService>(
         onMissingStub: OnMissingStub.returnDefault),
+    MockSpec<NewsService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
   ],
 )
@@ -44,6 +46,7 @@ void registerServices() {
   getAndRegisterVoteService();
   getAndRegisterRealtimeService();
   getAndRegisterChannelRegistryService();
+  getAndRegisterNewsService();
 // @stacked-mock-register
 }
 
@@ -154,6 +157,13 @@ MockChannelRegistryService getAndRegisterChannelRegistryService() {
   _removeRegistrationIfExists<ChannelRegistryService>();
   final service = MockChannelRegistryService();
   locator.registerSingleton<ChannelRegistryService>(service);
+  return service;
+}
+
+MockNewsService getAndRegisterNewsService() {
+  _removeRegistrationIfExists<NewsService>();
+  final service = MockNewsService();
+  locator.registerSingleton<NewsService>(service);
   return service;
 }
 // @stacked-mock-create

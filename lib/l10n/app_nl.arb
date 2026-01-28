@@ -1,0 +1,9 @@
+{
+  "newsTitle": "Nieuws",
+  "authorLabel": "Auteur: {name}",
+  "@authorLabel": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  }
+}
