@@ -7,6 +7,7 @@ import 'package:bushido/ui/common/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,9 @@ class MainApp extends StatelessWidget {
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [StackedService.routeObserver],
       theme: getAppTheme(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale('nl'),
     );
   }
 }

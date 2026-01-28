@@ -10,7 +10,7 @@ class NewsDTO with _$NewsDTO {
     required String title,
     required String content,
     required String authorName,
-    required DateTime publishedAt,
+    required DateTime createdAt,
     @Default(false) bool isRtl,
     String? imageUrl,
   }) = _NewsDTO;
@@ -24,8 +24,8 @@ class NewsDTO with _$NewsDTO {
       title: (doc['title'] ?? '') as String,
       content: (doc['content'] ?? '') as String,
       authorName: (doc['authorName'] ?? 'Anoniem') as String,
-      publishedAt: DateTime.parse(
-          (doc['publishedAt'] ?? DateTime.now().toIso8601String()) as String),
+      createdAt: DateTime.parse(
+          (doc['createdAt'] ?? DateTime.now().toIso8601String()) as String),
       isRtl: (doc['isRtl'] ?? false) as bool,
       imageUrl: doc['imageUrl'] as String?,
     );

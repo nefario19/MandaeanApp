@@ -24,7 +24,7 @@ mixin _$NewsDTO {
   String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String get authorName => throw _privateConstructorUsedError;
-  DateTime get publishedAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   bool get isRtl => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
 
@@ -47,7 +47,7 @@ abstract class $NewsDTOCopyWith<$Res> {
       String title,
       String content,
       String authorName,
-      DateTime publishedAt,
+      DateTime createdAt,
       bool isRtl,
       String? imageUrl});
 }
@@ -71,7 +71,7 @@ class _$NewsDTOCopyWithImpl<$Res, $Val extends NewsDTO>
     Object? title = null,
     Object? content = null,
     Object? authorName = null,
-    Object? publishedAt = null,
+    Object? createdAt = null,
     Object? isRtl = null,
     Object? imageUrl = freezed,
   }) {
@@ -92,9 +92,9 @@ class _$NewsDTOCopyWithImpl<$Res, $Val extends NewsDTO>
           ? _value.authorName
           : authorName // ignore: cast_nullable_to_non_nullable
               as String,
-      publishedAt: null == publishedAt
-          ? _value.publishedAt
-          : publishedAt // ignore: cast_nullable_to_non_nullable
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       isRtl: null == isRtl
           ? _value.isRtl
@@ -120,7 +120,7 @@ abstract class _$$NewsDTOImplCopyWith<$Res> implements $NewsDTOCopyWith<$Res> {
       String title,
       String content,
       String authorName,
-      DateTime publishedAt,
+      DateTime createdAt,
       bool isRtl,
       String? imageUrl});
 }
@@ -142,7 +142,7 @@ class __$$NewsDTOImplCopyWithImpl<$Res>
     Object? title = null,
     Object? content = null,
     Object? authorName = null,
-    Object? publishedAt = null,
+    Object? createdAt = null,
     Object? isRtl = null,
     Object? imageUrl = freezed,
   }) {
@@ -163,9 +163,9 @@ class __$$NewsDTOImplCopyWithImpl<$Res>
           ? _value.authorName
           : authorName // ignore: cast_nullable_to_non_nullable
               as String,
-      publishedAt: null == publishedAt
-          ? _value.publishedAt
-          : publishedAt // ignore: cast_nullable_to_non_nullable
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       isRtl: null == isRtl
           ? _value.isRtl
@@ -187,7 +187,7 @@ class _$NewsDTOImpl implements _NewsDTO {
       required this.title,
       required this.content,
       required this.authorName,
-      required this.publishedAt,
+      required this.createdAt,
       this.isRtl = false,
       this.imageUrl});
 
@@ -203,7 +203,7 @@ class _$NewsDTOImpl implements _NewsDTO {
   @override
   final String authorName;
   @override
-  final DateTime publishedAt;
+  final DateTime createdAt;
   @override
   @JsonKey()
   final bool isRtl;
@@ -212,7 +212,7 @@ class _$NewsDTOImpl implements _NewsDTO {
 
   @override
   String toString() {
-    return 'NewsDTO(id: $id, title: $title, content: $content, authorName: $authorName, publishedAt: $publishedAt, isRtl: $isRtl, imageUrl: $imageUrl)';
+    return 'NewsDTO(id: $id, title: $title, content: $content, authorName: $authorName, createdAt: $createdAt, isRtl: $isRtl, imageUrl: $imageUrl)';
   }
 
   @override
@@ -225,8 +225,8 @@ class _$NewsDTOImpl implements _NewsDTO {
             (identical(other.content, content) || other.content == content) &&
             (identical(other.authorName, authorName) ||
                 other.authorName == authorName) &&
-            (identical(other.publishedAt, publishedAt) ||
-                other.publishedAt == publishedAt) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.isRtl, isRtl) || other.isRtl == isRtl) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl));
@@ -234,8 +234,8 @@ class _$NewsDTOImpl implements _NewsDTO {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, content, authorName,
-      publishedAt, isRtl, imageUrl);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, content, authorName, createdAt, isRtl, imageUrl);
 
   /// Create a copy of NewsDTO
   /// with the given fields replaced by the non-null parameter values.
@@ -259,7 +259,7 @@ abstract class _NewsDTO implements NewsDTO {
       required final String title,
       required final String content,
       required final String authorName,
-      required final DateTime publishedAt,
+      required final DateTime createdAt,
       final bool isRtl,
       final String? imageUrl}) = _$NewsDTOImpl;
 
@@ -274,7 +274,7 @@ abstract class _NewsDTO implements NewsDTO {
   @override
   String get authorName;
   @override
-  DateTime get publishedAt;
+  DateTime get createdAt;
   @override
   bool get isRtl;
   @override
