@@ -18,7 +18,7 @@ class NewsView extends StackedView<NewsViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      appBar: AppBar(title: Text(L(context).newsTitle)),
+      appBar: AppBar(title: Text(L(context).newsTitle),),
       body: Center(
         child: viewModel.isBusy
             ? const CircularProgressIndicator()
@@ -37,8 +37,8 @@ class NewsView extends StackedView<NewsViewModel> {
                             Radius.circular(Environment.size12),
                           ),
                           side: BorderSide(
-                            color: Color(0xFFC4A053),
-                            width: 1,
+                            color: Colors.grey,
+                            width: 0.2,
                           ),
                         ),
                         child: Stack(

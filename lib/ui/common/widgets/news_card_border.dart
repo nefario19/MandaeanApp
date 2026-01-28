@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../services/common/environment.dart';
-import '../app_colors.dart';
 
 class NewsCardBorder extends StatelessWidget {
   final double width;
@@ -15,19 +14,20 @@ class NewsCardBorder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).colorScheme.secondary;
     return Positioned(
       top: 0,
       left: 0,
       child: Container(
         width: width,
         height: height,
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(Environment.size12),
             ),
             border: Border(
-              top: BorderSide(color: kcPrimaryColor, width: 3),
-              left: BorderSide(color: kcPrimaryColor, width: 3),
+              top: BorderSide(color: color, width: 3),
+              left: BorderSide(color: color, width: 3),
             )),
       ),
     );
