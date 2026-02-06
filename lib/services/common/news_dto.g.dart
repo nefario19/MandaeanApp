@@ -12,7 +12,7 @@ _$NewsDTOImpl _$$NewsDTOImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       content: json['content'] as String,
       authorName: json['authorName'] as String,
-      publishedAt: DateTime.parse(json['publishedAt'] as String),
+      createdAt: DateTime.parse(json['createdAt'] as String),
       isRtl: json['isRtl'] as bool? ?? false,
       imageUrl: json['imageUrl'] as String?,
     );
@@ -23,7 +23,7 @@ Map<String, dynamic> _$$NewsDTOImplToJson(_$NewsDTOImpl instance) =>
       'title': instance.title,
       'content': instance.content,
       'authorName': instance.authorName,
-      'publishedAt': instance.publishedAt.toIso8601String(),
+      'createdAt': instance.createdAt.toIso8601String(),
       'isRtl': instance.isRtl,
       'imageUrl': instance.imageUrl,
     };

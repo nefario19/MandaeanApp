@@ -3,8 +3,10 @@ import 'package:bushido/app/app.dialogs.dart';
 import 'package:bushido/app/app.locator.dart';
 import 'package:bushido/app/app.router.dart';
 import 'package:bushido/core/widgets/auth_guard.dart';
+import 'package:bushido/ui/common/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +30,10 @@ class MainApp extends StatelessWidget {
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [StackedService.routeObserver],
+      theme: getAppTheme(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale('nl'),
     );
   }
 }

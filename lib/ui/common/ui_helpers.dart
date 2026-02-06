@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const double _tinySize = 5.0;
 const double _smallSize = 10.0;
@@ -48,14 +49,11 @@ double screenWidthFraction(
 }) =>
     min((screenWidth(context) - offsetBy) / dividedBy, max);
 
-double halfScreenWidth(BuildContext context) =>
-    screenWidthFraction(context, dividedBy: 2);
+double halfScreenWidth(BuildContext context) => screenWidthFraction(context, dividedBy: 2);
 
-double thirdScreenWidth(BuildContext context) =>
-    screenWidthFraction(context, dividedBy: 3);
+double thirdScreenWidth(BuildContext context) => screenWidthFraction(context, dividedBy: 3);
 
-double quarterScreenWidth(BuildContext context) =>
-    screenWidthFraction(context, dividedBy: 4);
+double quarterScreenWidth(BuildContext context) => screenWidthFraction(context, dividedBy: 4);
 
 double getResponsiveHorizontalSpaceMedium(BuildContext context) =>
     screenWidthFraction(context, dividedBy: 10);
@@ -87,4 +85,6 @@ double getResponsiveFontSize(
   );
 
   return responsiveSize;
-}
+} 
+
+AppLocalizations L(BuildContext context) => AppLocalizations.of(context)!;
