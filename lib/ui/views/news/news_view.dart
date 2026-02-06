@@ -19,7 +19,9 @@ class NewsView extends StackedView<NewsViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      appBar: AppBar(title: Text(L(context).newsTitle),),
+      appBar: AppBar(
+        title: Text(L(context).newsTitle),
+      ),
       body: Center(
             child: viewModel.isBusy ? const CircularProgressIndicator()
             : viewModel.newsItems.value.isEmpty
