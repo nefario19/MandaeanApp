@@ -19,6 +19,7 @@ import '../ui/views/login/login_view.dart';
 import '../ui/views/register/register_view.dart';
 import '../ui/views/startup/startup_view.dart';
 import 'package:bushido/ui/views/main/main_view.dart';
+import 'package:bushido/ui/views/shell/shell_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -31,6 +32,7 @@ import 'package:bushido/ui/views/main/main_view.dart';
     MaterialRoute(page: CandidateDetailsView),
     MaterialRoute(page: NewsView),
     MaterialRoute(page: MainView),
+    MaterialRoute(page: ShellView),
 // @stacked-route
   ],
   dependencies: [

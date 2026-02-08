@@ -23,7 +23,8 @@ class NewsView extends StackedView<NewsViewModel> {
         title: Text(L(context).newsTitle),
       ),
       body: Center(
-            child: viewModel.isBusy ? const CircularProgressIndicator()
+        child: viewModel.isBusy
+            ? const CircularProgressIndicator()
             : viewModel.newsItems.value.isEmpty
                 ? const CircularProgressIndicator()
                 : ListView.separated(

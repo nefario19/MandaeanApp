@@ -49,11 +49,14 @@ double screenWidthFraction(
 }) =>
     min((screenWidth(context) - offsetBy) / dividedBy, max);
 
-double halfScreenWidth(BuildContext context) => screenWidthFraction(context, dividedBy: 2);
+double halfScreenWidth(BuildContext context) =>
+    screenWidthFraction(context, dividedBy: 2);
 
-double thirdScreenWidth(BuildContext context) => screenWidthFraction(context, dividedBy: 3);
+double thirdScreenWidth(BuildContext context) =>
+    screenWidthFraction(context, dividedBy: 3);
 
-double quarterScreenWidth(BuildContext context) => screenWidthFraction(context, dividedBy: 4);
+double quarterScreenWidth(BuildContext context) =>
+    screenWidthFraction(context, dividedBy: 4);
 
 double getResponsiveHorizontalSpaceMedium(BuildContext context) =>
     screenWidthFraction(context, dividedBy: 10);
@@ -85,6 +88,6 @@ double getResponsiveFontSize(
   );
 
   return responsiveSize;
-} 
+}
 
 AppLocalizations L(BuildContext context) => AppLocalizations.of(context)!;

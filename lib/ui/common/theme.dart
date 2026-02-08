@@ -13,11 +13,13 @@ ThemeData getAppTheme() {
     ),
     textTheme: const TextTheme(
       // Voor grote koppen (bijv. paginatitels)
-      headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, letterSpacing: -0.5),
+      headlineLarge: TextStyle(
+          fontSize: 32, fontWeight: FontWeight.bold, letterSpacing: -0.5),
       headlineMedium: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
 
       // Voor de titels op je kaarten
-      titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, height: 1.2),
+      titleLarge:
+          TextStyle(fontSize: 20, fontWeight: FontWeight.bold, height: 1.2),
       titleMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
 
       // Voor de eigenlijke leestekst (Intro van je nieuws)
@@ -25,7 +27,8 @@ ThemeData getAppTheme() {
       bodyMedium: TextStyle(fontSize: 14, height: 1.5, color: Colors.black54),
 
       // Voor kleine info (Auteur, Datum, Tags)
-      labelLarge: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, letterSpacing: 1.1),
+      labelLarge: TextStyle(
+          fontSize: 12, fontWeight: FontWeight.bold, letterSpacing: 1.1),
       labelSmall: TextStyle(fontSize: 10, color: Colors.grey),
     ),
   );

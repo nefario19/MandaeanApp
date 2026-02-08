@@ -10,7 +10,8 @@ class NewsViewModel extends BaseViewModel {
   final _log = log('News ViewModel');
   final _newsService = locator<NewsService>();
 
-  final ValueNotifier<List<NewsDTO>> _newsItems = ValueNotifier<List<NewsDTO>>([]);
+  final ValueNotifier<List<NewsDTO>> _newsItems =
+      ValueNotifier<List<NewsDTO>>([]);
   ValueListenable<List<NewsDTO>> get newsItems => _newsItems;
 
   Future<void> init() async {

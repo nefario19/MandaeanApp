@@ -26,8 +26,8 @@ class NewsCardBorder extends StatelessWidget {
               topLeft: Radius.circular(Environment.size12),
             ),
             border: Border(
-              top: BorderSide(color: color, width: 3),
-              left: BorderSide(color: color, width: 3),
+              top: BorderSide(color: color, width: 1.5),
+              left: BorderSide(color: color, width: 1.5),
             )),
       ),
     );
