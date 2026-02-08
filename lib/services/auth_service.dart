@@ -38,22 +38,25 @@ class AuthService {
   }
 
   Future<void> _loadCurrentUser() async {
-    final user = null;
+    try {
+      final user = await _accountService.getCurrentUser();
+      if (user != null) {
+        currentUser.value = user;
+        final sessions = await _accountService.getSessions();
 
-    if (user != null) {
-      currentUser.value = user;
-      final sessions = await _accountService.getSessions();
-
-      if (sessions.isNotEmpty) {
-        currentSession.value = sessions.first;
-        _log.i('Restored session: ${currentSession.value?.$id}');
+        if (sessions.isNotEmpty) {
+          currentSession.value = sessions.first;
+          _log.i('Restored session: ${currentSession.value?.$id}');
+        } else {
+          _log.i('No active sessions found');
+        }
       } else {
-        _log.i('No active sessions found');
+        _log.i('No user logged in');
+        currentUser.value = null;
+        currentSession.value = null;
       }
-    } else {
+    } catch (e) {
       _log.i('No user logged in');
-      currentUser.value = null;
-      currentSession.value = null;
     }
   }
 

@@ -32,8 +32,8 @@ class StartupViewModel extends BaseViewModel {
       _log.d('User loggedIn status: $loggedIn');
 
       if (loggedIn) {
-        _navigationService.replaceWithNewsView();
-        _log.d('Navigating to NewsView.');
+        _navigationService.replaceWithShellView();
+        _log.d('Navigating to ShellView.');
       } else {
         _navigationService.replaceWithLoginView();
         _log.d('Navigating to LoginView.');

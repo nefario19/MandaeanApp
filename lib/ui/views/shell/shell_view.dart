@@ -20,15 +20,14 @@ class ShellView extends StackedView<ShellViewModel> {
         actions: [
           IconButton(
             onPressed: () {
-              // if (!viewModel.isBusy) {
-              //   viewModel.signOut();
-              // }
+              if (!viewModel.isBusy) {
+                viewModel.signOut();
+              }
             },
             icon: const Icon(Icons.exit_to_app_rounded),
           ),
         ],
       ),
-      backgroundColor: Theme.of(context).colorScheme.surface,
       body: IndexedStack(
         index: viewModel.index.value,
         children: const [

@@ -10,18 +10,18 @@ class NewsViewModel extends BaseViewModel {
   final _log = log('News ViewModel');
   final _newsService = locator<NewsService>();
 
-  final ValueNotifier<List<NewsDTO>> _newsItems =
-      ValueNotifier<List<NewsDTO>>([]);
+  final ValueNotifier<List<NewsDTO>> _newsItems = ValueNotifier<List<NewsDTO>>([]);
   ValueListenable<List<NewsDTO>> get newsItems => _newsItems;
 
   Future<void> init() async {
-    _log.i('Opstarten NewsViewModel...');
+    _log.i('Initializing NewsViewModel...');
 
     // De 'setBusy' is een cadeautje van Stacked.
     // Handig voor morgen als je een laad-icoontje wilt tonen!
-    await runBusyFuture(_newsService.getAllNews());
+    final news = await runBusyFuture(_newsService.getAllNews());
 
-    _newsItems.value = _newsService.news.value;
-    _log.i('Aantal artikelen in service: ${_newsService.news.value.length}');
+    _newsItems.value = news;
+    notifyListeners();
+    _log.i('News articles in service: ${_newsService.news.value.length}');
   }
 }

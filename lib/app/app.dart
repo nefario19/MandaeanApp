@@ -2,7 +2,6 @@ import 'package:bushido/ui/views/news/news_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-// Hier komen de automatische imports
 import '../services/account_api.dart';
 import '../services/auth_service.dart';
 import '../services/channel_registry_service.dart';

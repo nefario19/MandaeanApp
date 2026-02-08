@@ -13,24 +13,23 @@ class NewsService {
   final ValueNotifier<List<NewsDTO>> _news = ValueNotifier<List<NewsDTO>>([]);
   ValueListenable<List<NewsDTO>> get news => _news;
 
-  Future<void> getAllNews() async {
+  Future<List<NewsDTO>> getAllNews() async {
     // Get all documents
     try {
-      final allNews =
-          await _databaseAPI.getALlRows(tableId: Environment.newsTableId);
+      final allNews = await _databaseAPI.getALlRows(tableId: Environment.newsTableId);
 
       // Convert to NewsDTO and put in list
       if (allNews == null || allNews.documents.isEmpty) {
         _log.w('No news articles found');
-        _news.value = [];
+        return _news.value = [];
       } else {
         _log.i('${allNews.documents.length} incoming news articles');
-        _news.value = allNews.documents
-            .map((doc) => NewsDTO.fromAppwrite(doc.data))
-            .toList();
+        _news.value = allNews.documents.map((doc) => NewsDTO.fromAppwrite(doc.data)).toList();
+        return _news.value;
       }
     } catch (e) {
-      _log.e('Fuck fuck fuck');
+      _log.e('An error has occurred while retrieving the news');
+      return _news.value = [];
     }
   }
 }
